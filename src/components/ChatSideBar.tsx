@@ -52,9 +52,6 @@ const ChatSideBar = ({ chats, chatId, isPro }: Props) => {
               {chat.id === chatId && (
                 <button onClick={handleDeleteClick}>
                   <Trash className="w-5 h-5 text-black-500" />
-                  <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-max px-1 py-1 bg-gray-800 text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    Delete
-                  </span>
                 </button>
               )}
             </div>

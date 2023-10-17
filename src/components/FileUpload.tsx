@@ -34,7 +34,7 @@ const FileUpload = () => {
     maxFiles: 1,
     onDrop: async (acceptedFiles) => {
       const file = acceptedFiles[0];
-      if (file.size > 10 * 1024 * 1024) {
+      if (file.size > 5 * 1024 * 1024) {
         // bigger than 10mb!
         toast.error("File too large");
         return;
@@ -43,7 +43,6 @@ const FileUpload = () => {
       try {
         setUploading(true);
         const data = await uploadToS3(file);
-        console.log("meow", data);
         if (!data?.file_key || !data.file_name) {
           toast.error("Something went wrong");
           return;
@@ -79,7 +78,7 @@ const FileUpload = () => {
             {/* loading state */}
             <Loader2 className="h-10 w-10 text-black-500 animate-spin" />
             <p className="mt-2 text-sm text-black-400">
-              Spilling Tea to GPT...
+              Spilling data to GPT...
             </p>
           </>
         ) : (

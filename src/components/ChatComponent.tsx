@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { Input } from "./ui/input";
 import { useChat } from "ai/react";
 import { Button } from "./ui/button";
@@ -9,6 +9,7 @@ import MessageList from "./MessageList";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Message } from "ai";
+import { toast } from "react-hot-toast";
 
 type Props = { chatId: number };
 
@@ -42,8 +43,13 @@ const ChatComponent = ({ chatId }: Props) => {
   }, [messages]);
 
   const handleResetClick = async () => {
-    await axios.post("/api/reset-chat", { chatId });
-    await refetch();
+    try {
+      await axios.post("/api/reset-chat", { chatId });
+      await refetch();
+      toast.success("Chat reset successfully.");
+    } catch (error) {
+      toast.error(`Error resetting chat: ${error}`);
+    }
   };
 
   return (
@@ -55,7 +61,7 @@ const ChatComponent = ({ chatId }: Props) => {
           <div className="relative group mx-2">
             <button onClick={handleResetClick}>
               <RotateCcw className="w-5 h-5 text-black-500" />
-              <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 w-max px-1 py-1 bg-gray-800 text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <span className="absolute rounded-md -bottom-6 left-1/2 transform -translate-x-1/2 w-max px-1 py-1 bg-gray-800 text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 Reset
               </span>
             </button>
