@@ -19,7 +19,6 @@ type Props = {
 const ChatSideBar = ({ chats, chatId, isPro }: Props) => {
   const [chatList, setChatList] = React.useState(chats);
   const router = useRouter();
-
   const handleDeleteClick = async () => {
     await axios.post("/api/delete-chat", { chatId });
     router.push("/");
