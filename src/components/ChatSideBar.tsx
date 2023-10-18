@@ -17,15 +17,15 @@ type Props = {
 };
 
 const ChatSideBar = ({ chats, chatId, isPro }: Props) => {
-  const [chatList, setChatList] = React.useState(chats);
-  const router = useRouter();
+  // const [chatList, setChatList] = React.useState(chats);
+  // const router = useRouter();
 
-  const handleDeleteClick = async () => {
-    await axios.post("/api/delete-chat", { chatId });
-    router.push("/");
-    setChatList((prevChats) => prevChats.filter((chat) => chat.id !== chatId));
-    toast.success("Chat deleted!");
-  };
+  // const handleDeleteClick = async () => {
+  //   await axios.post("/api/delete-chat", { chatId });
+  //   router.push("/");
+  //   setChatList((prevChats) => prevChats.filter((chat) => chat.id !== chatId));
+  //   toast.success("Chat deleted!");
+  // };
 
   return (
     <div className="w-full h-screen p-4 text-gray-200 bg-gray-900">
