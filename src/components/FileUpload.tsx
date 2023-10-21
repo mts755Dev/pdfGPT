@@ -6,6 +6,7 @@ import React from "react";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
 import { toast } from "react-hot-toast";
+import { PDFDocument } from "pdf-lib";
 import { useRouter } from "next/navigation";
 
 // https://github.com/aws/aws-sdk-js-v3/issues/4126
@@ -34,8 +35,9 @@ const FileUpload = () => {
     maxFiles: 1,
     onDrop: async (acceptedFiles) => {
       const file = acceptedFiles[0];
+      console.log("talha", file);
       if (file.size > 5 * 1024 * 1024) {
-        // bigger than 10mb!
+        // bigger than 5mb!
         toast.error("File too large");
         return;
       }

@@ -11,6 +11,10 @@ export const metadata: Metadata = {
   title: "pdfGPT",
 };
 
+// fetch("htpss", {
+//   cache: "only-if-cached",
+// });
+
 export default function RootLayout({
   children,
 }: {
