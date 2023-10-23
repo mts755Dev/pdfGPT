@@ -65,7 +65,7 @@ const ChatPage = ({ params: { chatId } }: Props) => {
           />
         </div>
         {/* pdf viewer */}
-        <div className="max-h-screen p-4 flex-[5]">
+        <div className="max-h-screen flex-[5]">
           <PDFViewer
             pdf_name={currentChat?.pdfName || ""}
             pdf_url={currentChat?.pdfUrl || ""}

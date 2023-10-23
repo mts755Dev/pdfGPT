@@ -3,6 +3,7 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  crossOrigin: 'anonymous',
   typescript: {
     ignoreBuildErrors: true,
   },
