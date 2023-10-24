@@ -37,7 +37,6 @@ export async function POST(req: Request, res: Response) {
     );
   } catch (error) {
     console.error(error);
-    toast.error("Unable to read PDF");
     return NextResponse.json({ error: error }, { status: 500 });
   }
 }
