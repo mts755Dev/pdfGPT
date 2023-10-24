@@ -1,6 +1,6 @@
 {
   "functions": {
-    "src/app/api/create-chat": {
+    "src/app/api/create-chat/route.ts": {
       "maxDuration": 30
     }
   }
