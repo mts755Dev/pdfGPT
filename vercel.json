@@ -1,8 +1,7 @@
 {
   "functions": {
     "api/create-chat": {
-      "runtime": "nodejs18.x",
-      "timeout": 30
+      "maxDuration": 30
     }
   }
 }
