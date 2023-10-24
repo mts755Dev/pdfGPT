@@ -34,7 +34,6 @@ const FileUpload = () => {
     maxFiles: 1,
     onDrop: async (acceptedFiles) => {
       const file = acceptedFiles[0];
-      console.log("talha", file);
       if (file.size > 5 * 1024 * 1024) {
         // bigger than 5mb!
         toast.error("File too large");
@@ -55,6 +54,7 @@ const FileUpload = () => {
           },
           onError: (err) => {
             toast.error("Error creating chat");
+            console.log("error", err);
             console.error(err);
           },
         });
