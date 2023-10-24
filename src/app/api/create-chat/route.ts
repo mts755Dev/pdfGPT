@@ -4,6 +4,7 @@ import { loadS3IntoPinecone } from "@/lib/pinecone";
 import { getS3Url } from "@/lib/s3";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
+import { toast } from "react-hot-toast";
 
 // /api/create-chat
 export async function POST(req: Request, res: Response) {
@@ -36,6 +37,7 @@ export async function POST(req: Request, res: Response) {
     );
   } catch (error) {
     console.error(error);
+    toast.error("Unable to read PDF");
     return NextResponse.json({ error: error }, { status: 500 });
   }
 }
