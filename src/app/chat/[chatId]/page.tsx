@@ -65,12 +65,12 @@ const ChatPage = ({ params: { chatId } }: Props) => {
           />
         </div>
         {/* pdf viewer */}
-        <div className="max-h-screen flex-[5]">
+        {/* <div className="max-h-screen flex-[5]">
           <PDFViewer
             pdf_name={currentChat?.pdfName || ""}
             pdf_url={currentChat?.pdfUrl || ""}
           />
-        </div>
+        </div> */}
         {/* chat component */}
         <div className="flex-[3] border-l-4 border-l-slate-200">
           <ChatComponent chatId={parseInt(chatId)} />
